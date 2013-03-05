@@ -2,15 +2,17 @@
 var direction:int;
 
 var speed:int;
-var rotation: int;
+var rotation:int;
 
 function Start () {
-direction =Mathf.Round(Random.Range(1,2));
+direction = Mathf.Round(Random.Range(0.5,2.4));
 print(direction);
 
 }
 
 function Update () {
+
+
 transform.Rotate(Vector3.forward*50*Time.deltaTime);
 
 if ( direction==1)
@@ -52,5 +54,4 @@ if (transform.position.y>bottommost)
 }
 
 
-	
 	

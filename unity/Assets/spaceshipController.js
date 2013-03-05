@@ -2,10 +2,14 @@
 var speed:int;
 var rotation: int;
 var lives: int;
+var turbo:int;
+var nspeed:int;
+turbo=10;
+nspeed=5;
 
 function Start () 
 {
-lives=1;
+lives=3;
 
 }
 
@@ -39,6 +43,13 @@ if (lives==0)
 {
 	Destroy(this.gameObject);
 }
+
+speed=nspeed;
+if (Input.GetKey(KeyCode.Space))
+{
+	speed = turbo;
+}
+
 
 }
 
