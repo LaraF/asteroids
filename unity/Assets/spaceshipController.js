@@ -4,6 +4,7 @@ var rotation: int;
 var lives: int;
 var turbo:int;
 var nspeed:int;
+var laserPrefab:Rigidbody;
 turbo=10;
 nspeed=5;
 
@@ -43,12 +44,18 @@ if (lives==0)
 {
 	Destroy(this.gameObject);
 }
-
+//speed = normal speed
 speed=nspeed;
 if (Input.GetKey(KeyCode.Space))
 {
 	speed = turbo;
 }
+
+if (Input.GetKeyDown(KeyCode.LeftShift))
+{	//create a lazer with the position of the spaceship
+	Instantiate(laserPrefab,transform.position,transform.rotation);
+}
+
 
 
 }
@@ -66,4 +73,7 @@ function OnTriggerEnter(other:Collider)
 function OnGUI()
 {
 	GUI.Label(Rect(5,5,50,25),"Lives: "+lives);
+	GUI.Label(Rect(5,50,200,25),"Speed: "+speed);
 }
+
+
